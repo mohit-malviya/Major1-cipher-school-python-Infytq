@@ -1,0 +1,41 @@
+Q1.
+def twoSum(nums, target):
+        lst=[]
+        for x in range(len(nums)):
+            for y in range(x+1,len(nums)):
+                #print(nums[y],"H")
+                if nums[x]+nums[y]==target:
+                    #print(x,y,nums[y])
+                    lst.extend([x,y])
+        lst=list(set(lst))
+        return lst
+
+print(twoSum([2,7,11,15],9))
+print(twoSum([3,2,4],6))
+print(twoSum([3,3],6))
+
+Q2.
+n = int(input())
+students = []
+for _ in range(n):
+    st = input()
+    grade = float(input())
+    students.append([st, grade])
+
+twoMin = 0
+minGrade = students[0][1]
+namelist = []
+for i, (name, grade) in enumerate(students[1:]):
+        if grade == minGrade:
+            continue
+        if not twoMin:
+            twoMin = grade
+            namelist.append(name)
+            continue
+        if grade == twoMin:
+            namelist.append(name)
+        else:
+            break
+namelist.sort()
+for name in namelist:
+    print(name)
